@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arun K — AI Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafaf8;
+  --white:#ffffff;
+  --ink:#1a1a1a;
+  --ink2:#2e2e2e;
+  --mid:#5a5a5a;
+  --soft:#8a8a8a;
+  --line:#e2e2de;
+  --line2:#d0d0cc;
+  --accent:#1c3f6e;
+  --accent2:#2a5298;
+  --gold:#b08d57;
+  --surface:#f2f2ef;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--ink);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,248,0.97);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5rem;height:64px;
+  animation:fadeDown 0.6s ease both;
+}
+.nav-brand{display:flex;flex-direction:column;gap:0}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:0.02em}
+.nav-title{font-size:0.65rem;font-weight:500;color:var(--soft);letter-spacing:0.14em;text-transform:uppercase}
+.nav-links{display:flex;gap:0;border-left:1px solid var(--line)}
+.nav-links a{
+  text-decoration:none;color:var(--mid);
+  font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0 1.5rem;height:64px;display:flex;align-items:center;
+  border-right:1px solid var(--line);
+  transition:all 0.2s;
+}
+.nav-links a:hover{background:var(--surface);color:var(--ink)}
+.nav-links a.active{background:var(--accent);color:#fff}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 420px;
+  border-bottom:1px solid var(--line);
+  padding-top:64px;
+}
+.hero-main{
+  padding:5rem;
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center;
+  animation:fadeUp 0.7s 0.15s ease both;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;
+}
+.eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.eyebrow-text{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,6vw,5.5rem);
+  font-weight:700;line-height:1;
+  letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:0.6rem;
+}
+.hero-designation{
+  font-size:0.85rem;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:2rem;
+}
+.hero-divider{width:48px;height:2px;background:var(--accent);margin-bottom:2rem}
+.hero-summary{
+  font-size:1.05rem;line-height:1.85;color:var(--mid);
+  max-width:520px;margin-bottom:3rem;font-weight:300;
+}
+.hero-summary strong{color:var(--ink);font-weight:600}
+.hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap}
+.btn-primary{
+  padding:0.75rem 2rem;
+  background:var(--accent);color:#fff;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid var(--accent);
+  transition:all 0.2s;
+}
+.btn-primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn-secondary{
+  padding:0.75rem 2rem;
+  background:transparent;color:var(--ink);
+  font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid var(--line2);
+  transition:all 0.2s;
+}
+.btn-secondary:hover{border-color:var(--ink);background:var(--surface)}
+
+.hero-sidebar{
+  display:flex;flex-direction:column;
+  animation:fadeUp 0.7s 0.3s ease both;
+}
+.sidebar-block{
+  padding:2rem;
+  border-bottom:1px solid var(--line);
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+}
+.sb-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);margin-bottom:0.6rem}
+.sb-value{font-size:0.9rem;font-weight:500;color:var(--ink);line-height:1.4}
+.sb-sub{font-size:0.8rem;color:var(--mid);margin-top:0.2rem}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2e7d32;margin-right:0.5rem;vertical-align:middle}
+
+/* SECTION BASICS */
+section{padding:5rem}
+.section-header{
+  display:grid;grid-template-columns:180px 1fr;
+  gap:3rem;align-items:baseline;
+  border-bottom:1px solid var(--line);
+  padding-bottom:1.5rem;margin-bottom:3.5rem;
+}
+.sec-num{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--soft)}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;color:var(--ink);letter-spacing:-0.01em}
+
+/* ABOUT */
+#about{background:var(--white);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:180px 1fr 300px;gap:3rem}
+.about-label-col{padding-top:0.2rem}
+.about-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft)}
+.about-body{font-size:0.98rem;line-height:1.9;color:var(--mid);font-weight:300}
+.about-body p{margin-bottom:1.1rem}
+.about-body strong{color:var(--ink);font-weight:600}
+.about-aside{}
+.aside-block{margin-bottom:2rem}
+.aside-title{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.skill-list li{font-size:0.85rem;color:var(--mid);padding:0.35rem 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:0.6rem}
+.skill-list li::before{content:'';display:block;width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* RESUME */
+#resume{background:var(--bg);border-bottom:1px solid var(--line)}
+.resume-cols{display:grid;grid-template-columns:180px 1fr 1fr;gap:3rem}
+.resume-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);padding-top:0.2rem}
+.tl{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  display:grid;grid-template-columns:90px 1fr;
+  gap:1.5rem;
+  padding:1.8rem 0;
+  border-bottom:1px solid var(--line);
+}
+.tl-item:last-child{border-bottom:none}
+.tl-year{font-size:0.72rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;padding-top:0.15rem}
+.tl-content{}
+.tl-role{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem}
+.tl-org{font-size:0.8rem;font-weight:600;color:var(--accent);letter-spacing:0.04em;margin-bottom:0.6rem;text-transform:uppercase}
+.tl-desc{font-size:0.84rem;color:var(--mid);line-height:1.75;font-weight:300}
+
+/* PROJECTS */
+#projects{background:var(--white);border-bottom:1px solid var(--line)}
+.proj-cols{display:grid;grid-template-columns:180px 1fr;gap:3rem}
+.proj-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);padding-top:0.2rem}
+.proj-list{display:flex;flex-direction:column;gap:0}
+.proj-item{
+  display:grid;grid-template-columns:1fr 200px;
+  gap:2rem;align-items:start;
+  padding:2rem 0;
+  border-bottom:1px solid var(--line);
+  transition:background 0.2s;
+}
+.proj-item:last-child{border-bottom:none}
+.proj-num{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;color:var(--soft);margin-bottom:0.6rem}
+.proj-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.7rem;line-height:1.3}
+.proj-desc{font-size:0.86rem;color:var(--mid);line-height:1.8;font-weight:300;max-width:560px}
+.proj-meta{display:flex;flex-direction:column;gap:0.6rem;align-items:flex-end;padding-top:1.8rem}
+.proj-tag{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.3rem 0.9rem;border:1px solid var(--line2);color:var(--mid);
+}
+.proj-link-btn{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);text-decoration:none;
+  display:flex;align-items:center;gap:0.4rem;
+  transition:gap 0.2s;
+}
+.proj-link-btn:hover{gap:0.7rem}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.contact-cols{display:grid;grid-template-columns:180px 1fr 1fr;gap:3rem}
+.contact-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);padding-top:0.2rem}
+.contact-intro{font-size:1rem;line-height:1.85;color:var(--mid);font-weight:300;max-width:400px}
+.contact-intro strong{color:var(--ink);font-weight:600}
+.contact-details{display:flex;flex-direction:column;gap:0}
+.cd-item{
+  display:grid;grid-template-columns:80px 1fr;
+  gap:1rem;align-items:baseline;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line);
+}
+.cd-item:last-child{border-bottom:none}
+.cd-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft)}
+.cd-val{font-size:0.88rem;color:var(--ink);text-decoration:none;transition:color 0.2s}
+a.cd-val:hover{color:var(--accent)}
+
+/* FOOTER */
+footer{
+  padding:1.8rem 5rem;
+  background:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:#fff;letter-spacing:0.02em}
+.footer-mid{font-size:0.7rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase}
+.footer-right{font-size:0.7rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em}
+
+/* ANIMATIONS */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-main{padding:3rem 1.5rem}
+  .hero-sidebar{display:none}
+  section{padding:3rem 1.5rem}
+  .section-header{grid-template-columns:1fr}
+  .about-grid,.resume-cols,.contact-cols,.proj-cols{grid-template-columns:1fr}
+  .about-label-col,.resume-label,.contact-label,.proj-label{display:none}
+  .proj-item{grid-template-columns:1fr}
+  .proj-meta{align-items:flex-start;padding-top:0}
+  .tl-item{grid-template-columns:70px 1fr}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-name">Arun K</div>
+    <div class="nav-title">AI Developer</div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">Profile</a>
+    <a href="#resume">Resume</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="active">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-main">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">AI Developer &amp; MCA Candidate</div>
+    </div>
+    <h1 class="hero-name">Arun K</h1>
+    <div class="hero-designation">Artificial Intelligence &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; Machine Learning</div>
+    <div class="hero-divider"></div>
+    <p class="hero-summary">
+      A dedicated <strong>AI Developer</strong> and postgraduate student at Hindusthan College of Engineering &amp; Technology, Coimbatore. Currently building practical expertise in <strong>Data Annotation and AI Model Training</strong> at Bakidu, with a research interest in intelligent safety systems and applied machine learning.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-sidebar">
+    <div class="sidebar-block">
+      <div class="sb-label">Current Status</div>
+      <div class="sb-value"><span class="status-dot"></span>Available for Opportunities</div>
+      <div class="sb-sub">Open to internships &amp; collaborations</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sb-label">Current Role</div>
+      <div class="sb-value">Data Annotation &amp; AI Training Intern</div>
+      <div class="sb-sub">Bakidu</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sb-label">Education</div>
+      <div class="sb-value">Master of Computer Application</div>
+      <div class="sb-sub">Anna University · 2025–2027</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sb-label">Certification</div>
+      <div class="sb-value">Minor in CSE &amp; Advanced Technology</div>
+      <div class="sb-sub">IIT Mandi · 2024–2025</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sb-label">Location</div>
+      <div class="sb-value">Coimbatore, Tamil Nadu</div>
+      <div class="sb-sub">India</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <div class="sec-num">01 — Profile</div>
+    <h2 class="sec-title">Professional Profile</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-label-col reveal">
+      <div class="about-label">Summary</div>
+    </div>
+    <div class="about-body reveal d1">
+      <p>I am <strong>Arun K</strong>, an AI Developer and Master of Computer Application candidate based in Coimbatore, Tamil Nadu. My academic background combines a Bachelor of Science in Computer Science from Thiruvalluvar University with ongoing postgraduate studies at Hindusthan College of Engineering and Technology under Anna University.</p>
+      <p>My professional experience centers on <strong>Data Annotation and AI Model Training</strong> at Bakidu, where I contribute to the development of high-quality training datasets for machine learning applications. I have also contributed to the open-source research community by publishing annotated datasets on Kaggle.</p>
+      <p>I hold an additional certification in <strong>Computer Science and Advanced Technology from IIT Mandi</strong>, reflecting my commitment to continuous professional development. My core interests lie in intelligent systems, applied machine learning, and data-driven solutions for real-world problems.</p>
+    </div>
+    <div class="about-aside reveal d2">
+      <div class="aside-block">
+        <div class="aside-title">Technical Competencies</div>
+        <ul class="skill-list">
+          <li>Artificial Intelligence</li>
+          <li>Machine Learning</li>
+          <li>Data Annotation</li>
+          <li>AI Model Training</li>
+          <li>Python Programming</li>
+          <li>Data Analysis</li>
+          <li>Research &amp; Documentation</li>
+        </ul>
+      </div>
+      <div class="aside-block">
+        <div class="aside-title">Professional Attributes</div>
+        <ul class="skill-list">
+          <li>Critical Thinking</li>
+          <li>Leadership</li>
+          <li>Problem Solving</li>
+          <li>Analytical Reasoning</li>
+        </ul>
+      </div>
+      <div class="aside-block">
+        <div class="aside-title">Languages</div>
+        <ul class="skill-list">
+          <li>English — Proficient</li>
+          <li>Tamil — Native</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="section-header reveal">
+    <div class="sec-num">02 — Resume</div>
+    <h2 class="sec-title">Education &amp; Experience</h2>
+  </div>
+  <div class="resume-cols">
+    <div class="resume-label reveal">Education</div>
+    <div class="tl reveal d1">
+      <div class="tl-item">
+        <div class="tl-year">2025–2027</div>
+        <div class="tl-content">
+          <div class="tl-role">Master of Computer Application</div>
+          <div class="tl-org">Hindusthan College of Engineering &amp; Technology · Anna University</div>
+          <div class="tl-desc">Pursuing an MCA in Coimbatore with a specialisation in Artificial Intelligence and Machine Learning. Engaged in applied research projects focused on AI-driven solutions for real-world problems.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2023–2025</div>
+        <div class="tl-content">
+          <div class="tl-role">Bachelor of Science, Computer Science</div>
+          <div class="tl-org">KARAN Arts &amp; Science College · Thiruvalluvar University</div>
+          <div class="tl-desc">Completed undergraduate studies at Thiruvannamalai, establishing a strong foundation in computer science fundamentals, programming, and algorithmic thinking.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024–2025</div>
+        <div class="tl-content">
+          <div class="tl-role">Minor in CSE &amp; Advanced Technology</div>
+          <div class="tl-org">IIT Mandi — Indian Institute of Technology</div>
+          <div class="tl-desc">Completed an additional professional certification in Computer Science and Advanced Technologies at IIT Mandi, one of India's premier technical institutions.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl reveal d2">
+      <div class="tl-item">
+        <div class="tl-year">2024–Present</div>
+        <div class="tl-content">
+          <div class="tl-role">Data Annotation &amp; AI Training Intern</div>
+          <div class="tl-org">Bakidu</div>
+          <div class="tl-desc">Responsible for the annotation, labelling, and quality assurance of datasets used in AI model training pipelines. Contributing to the development of robust machine learning datasets for commercial AI applications.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024–Ongoing</div>
+        <div class="tl-content">
+          <div class="tl-role">Open-Source Data Contributor</div>
+          <div class="tl-org">Kaggle — Public Research Community</div>
+          <div class="tl-desc">Published 100+ annotated datasets on Kaggle, made publicly available for the global AI research and academic community to support model training, benchmarking, and experimentation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="sec-num">03 — Projects</div>
+    <h2 class="sec-title">Research &amp; Projects</h2>
+  </div>
+  <div class="proj-cols">
+    <div class="proj-label reveal">Selected Work</div>
+    <div class="proj-list reveal d1">
+      <div class="proj-item">
+        <div>
+          <div class="proj-num">Project 01</div>
+          <div class="proj-name">Wake Wheel Smart System for Driver Drowsiness Prevention</div>
+          <div class="proj-desc">A proactive intelligent safety system designed to detect driver drowsiness in real time and issue alerts before fatigue-induced incidents occur. The system leverages AI-based monitoring to improve road safety, particularly on long-distance and highway drives.</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">AI / Safety</span>
+          <span class="proj-tag">Computer Vision</span>
+        </div>
+      </div>
+      <div class="proj-item">
+        <div>
+          <div class="proj-num">Project 02</div>
+          <div class="proj-name">Student Academic Pressure Analyser</div>
+          <div class="proj-desc">An in-development machine learning system that evaluates student academic stress and pressure through a structured five-question assessment. The project aims to provide institutions with early-warning indicators for student mental well-being and academic intervention.</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">ML / Education</span>
+          <span class="proj-tag">In Progress</span>
+        </div>
+      </div>
+      <div class="proj-item">
+        <div>
+          <div class="proj-num">Project 03</div>
+          <div class="proj-name">Kaggle Annotated Dataset — Public Contribution</div>
+          <div class="proj-desc">Compiled and annotated a collection of 100+ structured data entries and published them openly on Kaggle. The dataset is available for use by the global AI research community for supervised learning, benchmarking, and academic research purposes.</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">Open Data</span>
+          <a href="https://www.kaggle.com/arunkrishnamoorthis" target="_blank" class="proj-link-btn">View on Kaggle →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="sec-num">04 — Contact</div>
+    <h2 class="sec-title">Get In Touch</h2>
+  </div>
+  <div class="contact-cols">
+    <div class="contact-label reveal">Contact</div>
+    <div class="contact-intro reveal d1">
+      <p>I am open to <strong>internship opportunities, research collaborations, and project engagements</strong> in the fields of Artificial Intelligence and Machine Learning. Please feel free to reach out through any of the channels listed.</p>
+    </div>
+    <div class="contact-details reveal d2">
+      <div class="cd-item">
+        <div class="cd-label">Email</div>
+        <a href="mailto:arunkrishna102004@gmail.com" class="cd-val">arunkrishna102004@gmail.com</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Phone</div>
+        <a href="tel:+918072313808" class="cd-val">+91 80723 13808</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/arun-krishna732425327" target="_blank" class="cd-val">linkedin.com/in/arun-krishna732425327</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Kaggle</div>
+        <a href="https://www.kaggle.com/arunkrishnamoorthis" target="_blank" class="cd-val">kaggle.com/arunkrishnamoorthis</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Location</div>
+        <div class="cd-val">Coimbatore, Tamil Nadu, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Arun K</div>
+  <div class="footer-mid">AI Developer &nbsp;·&nbsp; Coimbatore, India</div>
+  <div class="footer-right">© 2025 All Rights Reserved</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
