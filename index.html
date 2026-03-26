@@ -191,7 +191,7 @@ section{padding:5rem}
 .proj-link-btn:hover{gap:0.7rem}
 
 /* CONTACT */
-#contact{background:var(--bg)}
+#contact{background:var(--bg);border-bottom:1px solid var(--line)}
 .contact-cols{display:grid;grid-template-columns:180px 1fr 1fr;gap:3rem}
 .contact-label{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);padding-top:0.2rem}
 .contact-intro{font-size:1rem;line-height:1.85;color:var(--mid);font-weight:300;max-width:400px}
@@ -458,52 +458,46 @@ footer{
   </div>
 </section>
 
-<!-- CONTACT -->
-<div class="contact-details reveal d2">
-
-  <div class="cd-item">
-    <div class="cd-label">Email</div>
-    <a href="mailto:arunkrishna102004@gmail.com" class="cd-val">
-      arunkrishna102004@gmail.com
-    </a>
+<!-- CONTACT — fixed with proper section wrapper and grid layout -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="sec-num">04 — Contact</div>
+    <h2 class="sec-title">Get In Touch</h2>
   </div>
-
-  <div class="cd-item">
-    <div class="cd-label">Phone</div>
-    <a href="tel:+918072313808" class="cd-val">
-      +91 80723 13808
-    </a>
-  </div>
-
-  <div class="cd-item">
-    <div class="cd-label">LinkedIn</div>
-    <a href="https://www.linkedin.com/in/arun-krishna-732425327/" target="_blank" class="cd-val">
-      linkedin.com/in/arun-krishna732425327
-    </a>
-  </div>
-
-  <div class="cd-item">
-    <div class="cd-label">Kaggle</div>
-    <a href="https://www.kaggle.com/arunkrishnamoorthis" target="_blank" class="cd-val">
-      kaggle.com/arunkrishnamoorthis
-    </a>
-  </div>
-
-  <div class="cd-item">
-    <div class="cd-label">GitHub</div>
-    <a href="https://github.com/your-username" target="_blank" class="cd-val">
-      github.com/your-username
-    </a>
-  </div>
-
-  <div class="cd-item">
-    <div class="cd-label">Location</div>
-    <div class="cd-val">
-      Coimbatore, Tamil Nadu, India
+  <div class="contact-cols">
+    <div class="contact-label reveal">Connect</div>
+    <div class="contact-intro reveal d1">
+      <p>I am open to <strong>internship opportunities, research collaborations, and project discussions</strong> in the fields of AI, machine learning, and data science. Feel free to reach out through any of the channels below.</p>
+    </div>
+    <div class="contact-details reveal d2">
+      <div class="cd-item">
+        <div class="cd-label">Email</div>
+        <a href="mailto:arunkrishna102004@gmail.com" class="cd-val">arunkrishna102004@gmail.com</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Phone</div>
+        <a href="tel:+918072313808" class="cd-val">+91 80723 13808</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/arun-krishna-732425327/" target="_blank" class="cd-val">linkedin.com/in/arun-krishna-732425327</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Kaggle</div>
+        <a href="https://www.kaggle.com/arunkrishnamoorthis" target="_blank" class="cd-val">kaggle.com/arunkrishnamoorthis</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">GitHub</div>
+        <a href="https://github.com/your-username" target="_blank" class="cd-val">github.com/your-username</a>
+      </div>
+      <div class="cd-item">
+        <div class="cd-label">Location</div>
+        <div class="cd-val">Coimbatore, Tamil Nadu, India</div>
+      </div>
     </div>
   </div>
+</section>
 
-</div>
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Arun K</div>
